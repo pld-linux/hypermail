@@ -30,6 +30,7 @@ Konwerter (skrzynek) poczty do HTML-a ze wsparciem MIME i w±tków.
 %patch0 -p1
 
 %build
+cp -f /usr/share/automake/config.sub .
 %{__aclocal}
 %{__autoconf}
 %configure \

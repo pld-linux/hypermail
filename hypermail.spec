@@ -9,6 +9,7 @@ Source0:	http://www.hypermail.org/dist/%{name}-%{version}.tar.gz
 Patch0:		%{name}-pcre.patch
 URL:		http://www.hypermail.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gdbm-devel
 BuildRequires:	pcre-devel
@@ -25,7 +26,7 @@ Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków.
 %patch0 -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--with-httpddir=/home/httpd \
@@ -42,13 +43,11 @@ rm -rf $RPM_BUILD_ROOT
 	httpddir=$RPM_BUILD_ROOT/home/httpd \
 	htmldir=$RPM_BUILD_ROOT/home/httpd/html
 
-gzip -9nf KNOWN_BUGS README TODO UPGRADE docs/*.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*.gz docs/*.html docs/*.gif
+%doc KNOWN_BUGS README TODO UPGRADE docs/*.txt docs/*.html docs/*.gif
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man?/*

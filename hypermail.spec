@@ -5,9 +5,6 @@ Version:	2.1.3
 Release:	1
 License:	GPL
 Group:		Applications/Mail
-Group(de):	Applikationen/Post
-Group(pl):	Aplikacje/Poczta
-Group(pt):	Aplicações/Correio Eletrônico
 Source0:	http://www.hypermail.org/dist/%{name}-%{version}.tar.gz
 Patch0:		%{name}-pcre.patch
 URL:		http://www.hypermail.org/

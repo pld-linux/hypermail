@@ -1,6 +1,6 @@
-diff -urN hypermail-2.1.3.org/Makefile.in hypermail-2.1.3/Makefile.in
---- hypermail-2.1.3.org/Makefile.in	Fri Dec 14 21:12:59 2001
-+++ hypermail-2.1.3/Makefile.in	Fri Dec 14 21:13:34 2001
+diff -Nur hypermail-2.1.6.orig/Makefile.in hypermail-2.1.6/Makefile.in
+--- hypermail-2.1.6.orig/Makefile.in	Mon Nov 25 06:36:44 2002
++++ hypermail-2.1.6/Makefile.in	Mon Feb 10 13:38:12 2003
 @@ -28,9 +28,9 @@
   
  # Compiler to use
@@ -13,21 +13,21 @@ diff -urN hypermail-2.1.3.org/Makefile.in hypermail-2.1.3/Makefile.in
  
  all:   hypermail support 
  
-diff -urN hypermail-2.1.3.org/configure.in hypermail-2.1.3/configure.in
---- hypermail-2.1.3.org/configure.in	Fri Dec 14 21:12:59 2001
-+++ hypermail-2.1.3/configure.in	Fri Dec 14 21:13:16 2001
-@@ -11,8 +11,6 @@
+diff -Nur hypermail-2.1.6.orig/configure.in hypermail-2.1.6/configure.in
+--- hypermail-2.1.6.orig/configure.in	Mon Nov 25 06:36:44 2002
++++ hypermail-2.1.6/configure.in	Mon Feb 10 13:38:00 2003
+@@ -11,7 +11,7 @@
  GDBM_INCLUDE=""
  GDBM_LIB=""
+ FNV_DEP=""
+-SUBDIRS="src/pcre"
++SUBDIRS=""
  
--AC_CONFIG_SUBDIRS(src/pcre)
--
  dnl ===========================================================================
  dnl Get host, target and build variables filled with appropriate info.
- dnl ===========================================================================
-diff -urN hypermail-2.1.3.org/src/Makefile.in hypermail-2.1.3/src/Makefile.in
---- hypermail-2.1.3.org/src/Makefile.in	Fri Dec 14 21:12:59 2001
-+++ hypermail-2.1.3/src/Makefile.in	Fri Dec 14 21:15:18 2001
+diff -Nur hypermail-2.1.6.orig/src/Makefile.in hypermail-2.1.6/src/Makefile.in
+--- hypermail-2.1.6.orig/src/Makefile.in	Fri Jan 24 21:04:57 2003
++++ hypermail-2.1.6/src/Makefile.in	Mon Feb 10 13:38:41 2003
 @@ -27,10 +27,10 @@
  #WNOERROR=-Werror
  #WARNINGS=$(WNOERROR) -ansi -pedantic -Wall -Wtraditional -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Dlint
@@ -41,12 +41,12 @@ diff -urN hypermail-2.1.3.org/src/Makefile.in hypermail-2.1.3/src/Makefile.in
  MISC_LIBS= -lm -lpcre
  OPT_LIBS=@EXTRA_LIBS@
  
-@@ -54,7 +54,7 @@
+@@ -56,7 +56,7 @@
  .c.o:
  	$(CC) -c $(CFLAGS) $<
  
--all:    pcre/libpcre.a hypermail$(SUFFIX) mail$(SUFFIX)
-+all:    hypermail$(SUFFIX) mail$(SUFFIX)
+-all:    pcre/libpcre.a @FNV_DEP@ hypermail$(SUFFIX) mail$(SUFFIX) lang$(SUFFIX)
++all:    @FNV_DEP@ hypermail$(SUFFIX) mail$(SUFFIX) lang$(SUFFIX)
  
  pcre/libpcre.a:
  	@cd pcre; $(MAKE) libtool libpcre.a CC="$(CC)" CFLAGS="$(CFLAGS)"

@@ -1,7 +1,7 @@
 Summary:	Mail(box) to HTML converter with threads and MIME support
-Summary(pl):	Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków
+Summary(pl):	Konwerter (skrzynek) poczty do HTML ze wsparciem dla MIME i w±tków
 Name:		hypermail
-Version:	2.1.4
+Version:	2.1.6
 Release:	1
 License:	GPL
 Group:		Applications/Mail
@@ -14,6 +14,9 @@ BuildRequires:	bison
 BuildRequires:	gdbm-devel
 BuildRequires:	pcre-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		httpdir		/home/services/httpd
+%define		htmldir		/home/services/httpd/html
 
 %description
 Mail(box) to HTML converter with threads and MIME support.
@@ -29,8 +32,8 @@ Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków.
 %{__aclocal}
 %{__autoconf}
 %configure \
-	--with-httpddir=/home/services/httpd \
-	--with-htmldir=/home/services/httpd/html \
+	--with-httpddir=%{httpdir} \
+	--with-htmldir=%{htmldir} \
 	--with-domainaddr=localhost \
 	--with-gdbm
 
@@ -40,8 +43,9 @@ Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków.
 rm -rf $RPM_BUILD_ROOT
 
 %{makeinstall} \
-	httpddir=$RPM_BUILD_ROOT/home/services/httpd \
-	htmldir=$RPM_BUILD_ROOT/home/services/httpd/html
+	httpddir=$RPM_BUILD_ROOT%{httpdir} \
+	htmldir=$RPM_BUILD_ROOT%{htmldir} \
+	imagedir=$RPM_BUILD_ROOT%{htmldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT

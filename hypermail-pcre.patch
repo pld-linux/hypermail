@@ -1,34 +1,6 @@
-diff -urN hypermail-2.1.7.org/Makefile.in hypermail-2.1.7/Makefile.in
---- hypermail-2.1.7.org/Makefile.in	Fri Mar 28 09:57:59 2003
-+++ hypermail-2.1.7/Makefile.in	Fri Mar 28 09:58:43 2003
-@@ -28,9 +28,9 @@
-  
- # Compiler to use
- CC=@CC@ 
--CFLAGS=@CFLAGS@ @INCLUDES@ -Ipcre -DTRIO_MINIMAL $(WARNINGS)
-+CFLAGS=@CFLAGS@ @INCLUDES@ -DTRIO_MINIMAL $(WARNINGS)
- LIBS=@LIBS@
--LDFLAGS=@LDFLAGS@ -Lpcre
-+LDFLAGS=@LDFLAGS@
- 
- all:   hypermail support 
- 
-diff -urN hypermail-2.1.7.org/configure.in hypermail-2.1.7/configure.in
---- hypermail-2.1.7.org/configure.in	Fri Mar 28 09:57:59 2003
-+++ hypermail-2.1.7/configure.in	Fri Mar 28 09:58:21 2003
-@@ -11,7 +11,7 @@
- GDBM_INCLUDE=""
- GDBM_LIB=""
- FNV_DEP=""
--SUBDIRS="src/pcre"
-+SUBDIRS=""
- 
- dnl ===========================================================================
- dnl Get host, target and build variables filled with appropriate info.
-diff -urN hypermail-2.1.7.org/src/Makefile.in hypermail-2.1.7/src/Makefile.in
---- hypermail-2.1.7.org/src/Makefile.in	Fri Mar 28 09:58:00 2003
-+++ hypermail-2.1.7/src/Makefile.in	Fri Mar 28 09:59:06 2003
-@@ -27,10 +27,10 @@
+--- hypermail-2.1.8/src/Makefile.in.orig	Fri Jul  4 00:23:07 2003
++++ hypermail-2.1.8/src/Makefile.in	Tue Jul 15 15:13:58 2003
+@@ -29,10 +29,10 @@
  #WNOERROR=-Werror
  #WARNINGS=$(WNOERROR) -ansi -pedantic -Wall -Wtraditional -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Dlint
  
@@ -36,17 +8,17 @@ diff -urN hypermail-2.1.7.org/src/Makefile.in hypermail-2.1.7/src/Makefile.in
 +CFLAGS=@CFLAGS@ @INCLUDES@ -DTRIO_MINIMAL $(WARNINGS)
  YACC=@YACC@
  NETLIBS=@LIBS@
--LDFLAGS=@LDFLAGS@ -Lpcre
+-LDFLAGS=@LDFLAGS@ -Lpcre/.libs
 +LDFLAGS=@LDFLAGS@
  MISC_LIBS= -lm -lpcre
  OPT_LIBS=@EXTRA_LIBS@
  
-@@ -56,7 +56,7 @@
+@@ -58,7 +58,7 @@
  .c.o:
  	$(CC) -c $(CFLAGS) $<
  
--all:    pcre/libpcre.a @FNV_DEP@ hypermail$(SUFFIX) mail$(SUFFIX) lang$(SUFFIX)
+-all:    pcre/.libs/libpcre.a @FNV_DEP@ hypermail$(SUFFIX) mail$(SUFFIX) lang$(SUFFIX)
 +all:    @FNV_DEP@ hypermail$(SUFFIX) mail$(SUFFIX) lang$(SUFFIX)
  
- pcre/libpcre.a:
- 	@cd pcre; $(MAKE) libtool libpcre.a CC="$(CC)" CFLAGS="$(CFLAGS)"
+ pcre/.libs/libpcre.a:
+ 	@cd pcre; $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)"

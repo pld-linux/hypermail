@@ -1,3 +1,4 @@
+# TODO: use system pcre
 Summary:	Mail(box) to HTML converter with threads and MIME support
 Summary(pl):	Konwerter (skrzynek) poczty do HTML-a ze wsparciem dla MIME i w±tków
 Name:		hypermail
@@ -30,7 +31,9 @@ Konwerter (skrzynek) poczty do HTML-a ze wsparciem MIME i w±tków.
 %patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub .
+for i in . src/pcre src/fnv; do
+	cp -f /usr/share/automake/config.sub $i
+done;
 %{__aclocal}
 %{__autoconf}
 %configure \

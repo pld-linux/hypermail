@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.hypermail.org/dist/%{name}-%{version}.tar.gz
+# Source0-md5:	bbbf059f8e29c4b0d6bbc995567050cd
 Patch0:		%{name}-pcre.patch
 URL:		http://www.hypermail.org/
 BuildRequires:	autoconf

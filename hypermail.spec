@@ -31,7 +31,7 @@ autoconf
 	--with-httpddir=/home/httpd \
 	--with-htmldir=/home/httpd/html \
 	--with-domainaddr=localhost \
-	--with-gdbm	
+	--with-gdbm
 
 %{__make} all
 

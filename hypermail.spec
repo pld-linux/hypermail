@@ -1,12 +1,12 @@
 Summary:	Mail(box) to HTML converter with threads and MIME support
 Summary(pl):	Konwerter (skrzynek) poczty do HTML ze wsparciem dla MIME i w±tków
 Name:		hypermail
-Version:	2.1.7
+Version:	2.1.8
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://www.hypermail.org/dist/%{name}-%{version}.tar.gz
-# Source0-md5:	bbbf059f8e29c4b0d6bbc995567050cd
+# Source0-md5:	bacd95589f2f3ca426631461fd9237dd
 Patch0:		%{name}-pcre.patch
 URL:		http://www.hypermail.org/
 BuildRequires:	autoconf
@@ -53,6 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc KNOWN_BUGS README TODO UPGRADE docs/*.txt docs/*.html docs/*.gif
+%doc KNOWN_BUGS README TODO UPGRADE docs/*.txt docs/*.html docs/*.png
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man?/*

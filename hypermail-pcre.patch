@@ -1,21 +1,21 @@
-diff -Nur hypermail-2.1.6.orig/Makefile.in hypermail-2.1.6/Makefile.in
---- hypermail-2.1.6.orig/Makefile.in	Mon Nov 25 06:36:44 2002
-+++ hypermail-2.1.6/Makefile.in	Mon Feb 10 13:38:12 2003
+diff -urN hypermail-2.1.7.org/Makefile.in hypermail-2.1.7/Makefile.in
+--- hypermail-2.1.7.org/Makefile.in	Fri Mar 28 09:57:59 2003
++++ hypermail-2.1.7/Makefile.in	Fri Mar 28 09:58:43 2003
 @@ -28,9 +28,9 @@
   
  # Compiler to use
  CC=@CC@ 
--CFLAGS=@CFLAGS@ @INCLUDES@ -Ipcre $(WARNINGS)
-+CFLAGS=@CFLAGS@ @INCLUDES@ $(WARNINGS)
+-CFLAGS=@CFLAGS@ @INCLUDES@ -Ipcre -DTRIO_MINIMAL $(WARNINGS)
++CFLAGS=@CFLAGS@ @INCLUDES@ -DTRIO_MINIMAL $(WARNINGS)
  LIBS=@LIBS@
 -LDFLAGS=@LDFLAGS@ -Lpcre
 +LDFLAGS=@LDFLAGS@
  
  all:   hypermail support 
  
-diff -Nur hypermail-2.1.6.orig/configure.in hypermail-2.1.6/configure.in
---- hypermail-2.1.6.orig/configure.in	Mon Nov 25 06:36:44 2002
-+++ hypermail-2.1.6/configure.in	Mon Feb 10 13:38:00 2003
+diff -urN hypermail-2.1.7.org/configure.in hypermail-2.1.7/configure.in
+--- hypermail-2.1.7.org/configure.in	Fri Mar 28 09:57:59 2003
++++ hypermail-2.1.7/configure.in	Fri Mar 28 09:58:21 2003
 @@ -11,7 +11,7 @@
  GDBM_INCLUDE=""
  GDBM_LIB=""
@@ -25,15 +25,15 @@ diff -Nur hypermail-2.1.6.orig/configure.in hypermail-2.1.6/configure.in
  
  dnl ===========================================================================
  dnl Get host, target and build variables filled with appropriate info.
-diff -Nur hypermail-2.1.6.orig/src/Makefile.in hypermail-2.1.6/src/Makefile.in
---- hypermail-2.1.6.orig/src/Makefile.in	Fri Jan 24 21:04:57 2003
-+++ hypermail-2.1.6/src/Makefile.in	Mon Feb 10 13:38:41 2003
+diff -urN hypermail-2.1.7.org/src/Makefile.in hypermail-2.1.7/src/Makefile.in
+--- hypermail-2.1.7.org/src/Makefile.in	Fri Mar 28 09:58:00 2003
++++ hypermail-2.1.7/src/Makefile.in	Fri Mar 28 09:59:06 2003
 @@ -27,10 +27,10 @@
  #WNOERROR=-Werror
  #WARNINGS=$(WNOERROR) -ansi -pedantic -Wall -Wtraditional -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Dlint
  
--CFLAGS=@CFLAGS@ @INCLUDES@ -Ipcre $(WARNINGS)
-+CFLAGS=@CFLAGS@ @INCLUDES@ $(WARNINGS)
+-CFLAGS=@CFLAGS@ @INCLUDES@ -Ipcre -DTRIO_MINIMAL $(WARNINGS)
++CFLAGS=@CFLAGS@ @INCLUDES@ -DTRIO_MINIMAL $(WARNINGS)
  YACC=@YACC@
  NETLIBS=@LIBS@
 -LDFLAGS=@LDFLAGS@ -Lpcre

@@ -26,7 +26,7 @@ Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków.
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure \
 	--with-httpddir=/home/httpd \
 	--with-htmldir=/home/httpd/html \

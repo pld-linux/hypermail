@@ -1,5 +1,5 @@
 Summary:	Mail(box) to HTML converter with threads and MIME support
-Summary(pl):	Konwerter (skrzynek) poczty do HTML ze wsparciem dla MIME i w±tków
+Summary(pl):	Konwerter (skrzynek) poczty do HTML-a ze wsparciem dla MIME i w±tków
 Name:		hypermail
 Version:	2.1.8
 Release:	1
@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Mail(box) to HTML converter with threads and MIME support.
 
 %description -l pl
-Konwerter (skrzynek) poczty do HTML ze wsparciem MIME i w±tków.
+Konwerter (skrzynek) poczty do HTML-a ze wsparciem MIME i w±tków.
 
 %prep
 %setup -q

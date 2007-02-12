@@ -1,6 +1,6 @@
 # TODO: use system pcre
 Summary:	Mail(box) to HTML converter with threads and MIME support
-Summary(pl):	Konwerter (skrzynek) poczty do HTML-a ze wsparciem dla MIME i w±tków
+Summary(pl.UTF-8):   Konwerter (skrzynek) poczty do HTML-a ze wsparciem dla MIME i wÄ…tkÃ³w
 Name:		hypermail
 Version:	2.2.0
 Release:	3
@@ -23,8 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Mail(box) to HTML converter with threads and MIME support.
 
-%description -l pl
-Konwerter (skrzynek) poczty do HTML-a ze wsparciem MIME i w±tków.
+%description -l pl.UTF-8
+Konwerter (skrzynek) poczty do HTML-a ze wsparciem MIME i wÄ…tkÃ³w.
 
 %prep
 %setup -q
